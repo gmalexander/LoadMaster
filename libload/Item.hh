@@ -6,9 +6,10 @@ class Item
 {
     public:
        Item(std::string name, int runtime);
-       int SubtractTime(int time);
+       void SubtractTime(int time);
        bool IsDone();
        std::string GetName();
+       int GetRunTime();
     private:
        std::string Name;
        int RunTime;
