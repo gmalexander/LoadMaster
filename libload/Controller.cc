@@ -5,7 +5,7 @@
 #include "Executor.hh"
 #include "Item.hh"
 
-Controller::Controller(vector<Executor> executors, vector<Item> items)
+Controller::Controller(std::vector<Executor> executors, std::vector<Item> items)
 {
     this->Items = items;
     this->Executors = executors;
