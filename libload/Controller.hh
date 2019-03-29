@@ -16,6 +16,6 @@ class Controller
 		 int N3_GetShortestTime();
 		 std::vector<Item>::iterator N3_LoadStep();
 		 void N3_TimeStep();
-}         
+};      
 
 #endif

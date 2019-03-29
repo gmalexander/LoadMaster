@@ -39,12 +39,12 @@ void Executor::PopItem(Item item)
 
 void Executor::ApplyTime(int sec)
 {
-     for(auto it = this->Items.begin(); it != this->Items.end(); it++)
+     for(auto item = this->Items.begin(); item != this->Items.end(); item++)
      {
-	     it->SubtractTime(sec);
-	     if(it->IsDone())
+	     item->SubtractTime(sec);
+	     if(item->IsDone())
 	     {
-	         this->PopItem(it);
+	         this->PopItem(*item);
 	     }
      }
 }

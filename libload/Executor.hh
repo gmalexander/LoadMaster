@@ -15,6 +15,6 @@ class Executor
 	     int Slots;
 	     int OpenSlots;
 	     void PopItem(Item it);
-}
+};
 
 #endif

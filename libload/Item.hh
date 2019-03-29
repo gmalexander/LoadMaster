@@ -15,4 +15,5 @@ class Item
        int RunTime;
        int TimeRemaining;
 };
+
 #endif
