@@ -9,7 +9,7 @@ class Controller
 {
     public:
 	Controller(int slots, Vector<Item> items);
-	std::string CalculateTime();
+	int CalculateN3Approximation();
     private:
 	Vector<Item> Items;
 	Vector<Executor> Executors;

@@ -36,7 +36,7 @@ void Executor::PopItem(Item item)
    }
 }
 
-bool Executor::ApplyTime(int sec)
+void Executor::ApplyTime(int sec)
 {
     for(auto it = this->Items.begin(); it != this->Items.end(); it++)
     {

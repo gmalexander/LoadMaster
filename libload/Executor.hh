@@ -8,7 +8,7 @@ class Executor
 {
     public:
 	Executor(int slots);
-	bool ApplyTime(int sec);
+	void ApplyTime(int sec);
         bool PushItem(Item it);
     private:
         std::Vector<Item> Items;
