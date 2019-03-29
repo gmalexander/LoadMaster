@@ -8,9 +8,9 @@
 class Controller
 {
     public:
-	Controller(int slots, Vector<Item> items);
+	Controller(int slots, vector<Item> items);
 	int CalculateN3Approximation();
     private:
-	Vector<Item> Items;
-	Vector<Executor> Executors;
+	vector<Item> Items;
+	vector<Executor> Executors;
 }         

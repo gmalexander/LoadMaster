@@ -11,7 +11,7 @@ class Executor
 	void ApplyTime(int sec);
         bool PushItem(Item it);
     private:
-        std::Vector<Item> Items;
+        std::vector<Item> Items;
 	int Slots;
 	int OpenSlots;
 	void PopItem(Item it);
