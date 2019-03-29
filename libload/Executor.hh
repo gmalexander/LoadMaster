@@ -8,10 +8,12 @@ class Executor
 {
     public:
 	Executor(int slots);
-	void ApplyTime(int sec);
-        void PushItem(Item it);
+	bool ApplyTime(int sec);
+        bool PushItem(Item it);
     private:
-        std::Vector<Item> items;
+        std::Vector<Item> Items;
+	int Slots;
+	int OpenSlots;
 	void PopItem(Item it);
 }
 
