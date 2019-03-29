@@ -8,11 +8,11 @@
 class Controller
 {
      public:
-	     Controller(int slots, vector<Item> items);
+	     Controller(int slots, std::vector<Item> items);
 	     int CalculateN3Approximation();
      private:
-	     vector<Item> Items;
-	     vector<Executor> Executors;
+	     std::vector<Item> Items;
+	     std::vector<Executor> Executors;
 		 int N3_GetShortestTime();
 		 std::vector<Item>::iterator N3_LoadStep();
 		 void N3_TimeStep();

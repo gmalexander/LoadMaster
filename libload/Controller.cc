@@ -13,7 +13,7 @@ Controller::Controller(vector<Executor> executors, vector<Item> items)
 
 int Controller::N3_GetShortestTime()
 {
-    int intervalToUse = INT_MAX;
+    int interval = INT_MAX;
     for(auto item = this->Items.begin(); item < this->Items.end(); item++)
     {
        int runtime = item->GetRunTime();
