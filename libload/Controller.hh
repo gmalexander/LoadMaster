@@ -8,7 +8,7 @@
 class Controller
 {
      public:
-	     Controller(int slots, std::vector<Item> items);
+	     Controller(std::vector<Executor> executors, std::vector<Item> items);
 	     int CalculateN3Approximation();
      private:
 	     std::vector<Item> Items;
