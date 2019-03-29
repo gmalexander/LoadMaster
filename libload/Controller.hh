@@ -15,7 +15,7 @@ class Controller
 	     std::vector<Executor> Executors;
 		 int N3_GetShortestTime();
 		 std::vector<Item>::iterator N3_LoadStep(std::vector<Item>::iterator nextItem);
-		 void N3_TimeStep();
+		 void N3_TimeStep(int interval);
 };      
 
 #endif

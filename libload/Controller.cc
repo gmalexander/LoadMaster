@@ -45,7 +45,7 @@ std::vector<Item>::iterator Controller::N3_LoadStep(std::vector<Item>::iterator 
     return nextItem;
 }
 
-void Controller::N3_TimeStep()
+void Controller::N3_TimeStep(int interval)
 {
     for(auto exec = this->Executors.begin(); exec != this->Executors.end(); exec++)
     {
@@ -62,7 +62,7 @@ int Controller::CalculateN3Approximation()
     while (!alldone)
     {
        nextItem = this->N3_LoadStep(nextItem);
-       this->N3_TimeStep();
+       this->N3_TimeStep(interval);
        totalSeconds += interval;
     }
     return totalSeconds;
