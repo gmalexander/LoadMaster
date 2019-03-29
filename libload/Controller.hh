@@ -7,10 +7,15 @@
 
 class Controller
 {
-    public:
-	Controller(int slots, vector<Item> items);
-	int CalculateN3Approximation();
-    private:
-	vector<Item> Items;
-	vector<Executor> Executors;
+     public:
+	     Controller(int slots, vector<Item> items);
+	     int CalculateN3Approximation();
+     private:
+	     vector<Item> Items;
+	     vector<Executor> Executors;
+		 int N3_GetShortestTime();
+		 std::vector<Item>::iterator N3_LoadStep();
+		 void N3_TimeStep();
 }         
+
+#endif
