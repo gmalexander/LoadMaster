@@ -5,11 +5,11 @@
 #include "TestResultAggregator.hh"
 #include "TestResult.hh"
 
-template <size_t s> class TestResultAggregator
+template <size_t S> class TestResultAggregator
 {
     public:
         TestResultAggregator(std::string aggregatorName);
-        void DisplayResults(std::array<TestResult, s> results);
+        void DisplayResults(std::array<TestResult, S> results);
     private:
         std::string AggregatorName;
 };
