@@ -37,11 +37,11 @@ TestResult case2_verifyRunTimeInstantiation()
 
 int main()
 {
-   int numberOfCases = 2;
+   const int NUMBER_OF_CASES = 2;
    std::string groupingName = "Verify Item"
    TestResult case1 = case1_verifyNameInstantiation();
    TestResult case2 = case2_verifyRunTimeInstantiation();
-   std::array<TestResult, numberOfCases> cases = {case1, case2};
-   TestResultAggregator<numberOfCases> resultAggregate(groupingName);
+   std::array<TestResult, NUMBER_OF_CASES> cases = {case1, case2};
+   TestResultAggregator<NUMBER_OF_CASES> resultAggregate(groupingName);
    resultAggregate.DisplayResults(cases);
 }
