@@ -14,9 +14,9 @@ TestResult case1_verifyNameInstantiation()
     Item fixture(expectedName, runtime);
     std::string actualName = fixture.GetName();
     std::string commonMessage = "Expected: " + expectedName + " Actual: " + actualName;
-    Test test(expectedName, actualName, caseName);
+    Test<int> test(expectedName, actualName, caseName);
     TestResult result = test.Assert();
-    return TestResult;
+    return result;
 }
 
 TestResult case2_verifyRunTimeInstantiation()
@@ -28,15 +28,15 @@ TestResult case2_verifyRunTimeInstantiation()
     Item fixture(name, expectedRunTime);
     int actualRunTime = fixture.GetRunTime();
     std::string commonMessage = "Expected: " + expectedRunTime + " Actual: " + actualRunTime;
-    Test test(expectedRunTime, actualRunTime, caseName);
+    Test<int> test(expectedRunTime, actualRunTime, caseName);
     TestResult result = test.Assert();
-    return TestResult;
+    return result;
 }
 
 int main()
 {
    const int NUMBER_OF_CASES = 2;
-   std::string groupingName = "Verify Item"
+   std::string groupingName = "Verify Item";
    TestResult case1 = case1_verifyNameInstantiation();
    TestResult case2 = case2_verifyRunTimeInstantiation();
    std::array<TestResult, NUMBER_OF_CASES> cases = {case1, case2};
