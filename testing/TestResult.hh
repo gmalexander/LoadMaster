@@ -5,7 +5,7 @@
 class TestResult
 {
     public:
-        TestResult(bool result, std::string message);
+        TestResult(bool result, std::string name, std::string message);
         bool GetResult();
         std::string GetResultString();
         std::string GetMessage();
