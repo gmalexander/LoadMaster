@@ -1,15 +1,15 @@
 #include <string>
 #include <array>
 #include <iostream>
-#include "TestAggregator.hh"
+#include "TestResultAggregator.hh"
 #include "TestResult.hh"
 
-TestAggregator::TestAggregator(std::string aggregatorName)
+TestResultAggregator::TestResultAggregator(std::string aggregatorName)
 {
     this->AggregatorName = aggregatorName;
 }
 
-void TestAggregator::DisplayResults(std::array<TestResult, s> results)
+void TestResultAggregator::DisplayResults(std::array<TestResult, s> results)
 {
     int passCount = 0;
     std::cout << "For test grouping: " << this->AggregatorName << "\n";

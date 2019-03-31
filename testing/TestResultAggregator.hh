@@ -2,12 +2,13 @@
 #define testaggregator_h_h__
 #include <string>
 #include <array>
-#include "TestAggregator.hh"
+#include "TestResultAggregator.hh"
+#include "TestResult.hh"
 
-template <size_t s> class TestAggregator
+template <size_t s> class TestResultAggregator
 {
     public:
-        TestAggregator::TestAggregator(std::string aggregatorName);
+        TestResultAggregator(std::string aggregatorName);
         void DisplayResults(std::array<TestResult, s> results);
     private:
         std::string AggregatorName;
