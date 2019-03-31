@@ -4,11 +4,13 @@
 #include "TestResultAggregator.hh"
 #include "TestResult.hh"
 
+template <size_t S>
 TestResultAggregator<S>::TestResultAggregator(std::string aggregatorName)
 {
     this->AggregatorName = aggregatorName;
 }
 
+template <size_t S>
 void TestResultAggregator<S>::DisplayResults(std::array<TestResult, s> results)
 {
     int passCount = 0;
