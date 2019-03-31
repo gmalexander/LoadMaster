@@ -13,7 +13,6 @@ TestResult case1_verifyNameInstantiation()
 
     Item fixture(expectedName, runtime);
     std::string actualName = fixture.GetName();
-    std::string commonMessage = "Expected: " + expectedName + " Actual: " + actualName;
     Test<std::string> test(expectedName, actualName, caseName);
     TestResult result = test.Assert();
     return result;
@@ -27,7 +26,6 @@ TestResult case2_verifyRunTimeInstantiation()
 
     Item fixture(name, expectedRunTime);
     int actualRunTime = fixture.GetRunTime();
-    std::string commonMessage = "Expected: " + expectedRunTime + " Actual: " + actualRunTime;
     Test<int> test(expectedRunTime, actualRunTime, caseName);
     TestResult result = test.Assert();
     return result;
