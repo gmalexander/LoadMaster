@@ -11,7 +11,7 @@ TestResultAggregator<S>::TestResultAggregator(std::string aggregatorName)
 }
 
 template <size_t S>
-void TestResultAggregator<S>::DisplayResults(std::array<TestResult, s> results)
+void TestResultAggregator<S>::DisplayResults(std::array<TestResult, S> results)
 {
     int passCount = 0;
     std::cout << "For test grouping: " << this->AggregatorName << "\n";
