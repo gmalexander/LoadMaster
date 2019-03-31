@@ -13,6 +13,7 @@ Test<T>::Test(T expected, T actual, std::string name)
 template <typename T>
 TestResult Test<T>::Assert()
 {
+    TestResult result;
     std::string message = "Expected: " + std::to_string(this->Expected) + " Actual: " + std::to_string(this->Actual) + "\n";
     if (this->Actual == this->Expected)
     {
@@ -24,5 +25,5 @@ TestResult Test<T>::Assert()
         bool failure = false;
         result = new TestResult(failure, this->Name, message);
     }
-    return TestResult;
+    return result;
 }
