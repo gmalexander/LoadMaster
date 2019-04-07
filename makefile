@@ -1,6 +1,6 @@
 HOME_PATH: ${HOME}
 BIN_PATH: "\./bin"
-YAUTF_URL: "https://github\.com/gmalexander/YAUTF"
+YAUTF_URL: "https\://github\.com/gmalexander/YAUTF"
 
 bin:
 	if [ ! -d bin ]; then mkdir bin; fi
