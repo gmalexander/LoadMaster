@@ -1,5 +1,5 @@
 HOME_PATH: ${HOME}
-BIN_PATH: "./bin"
+BIN_PATH: "\./bin"
 YAUTF_URL: "https://github.com/gmalexander/YAUTF"
 
 bin:
