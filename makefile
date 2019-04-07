@@ -5,7 +5,7 @@ YAUTF_URL: "https://github\.com/gmalexander/YAUTF"
 bin:
 	if [ ! -d bin ]; then mkdir bin; fi
 
-yautf:	bin
+yautf:
 	if [ ! -d YAUTF ]; then git clone $(YAUTF_URL); fi
 	make -C YAUTF clean
 	make -C YAUTF all
