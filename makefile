@@ -1,5 +1,5 @@
 HOME_PATH: ${HOME}
-BIN_PATH: "-L${HOME_PATH}/dev/LoadMaster/bin"
+BIN_PATH: "-L./bin"
 
 all: Item.o Executor.o Controller.o libload.so
 
