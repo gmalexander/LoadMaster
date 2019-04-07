@@ -1,7 +1,4 @@
-#include <vector>
-#include <string>
-#include "Executor.hh"
-#include "Item.hh"
+#include "executor.hh"
 
 Executor::Executor(int slots)
 {

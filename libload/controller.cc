@@ -1,9 +1,4 @@
-#include <vector>
-#include <string>
-#include <climits>
-#include "Controller.hh"
-#include "Executor.hh"
-#include "Item.hh"
+#include "controller.hh"
 
 Controller::Controller(std::vector<Executor> executors, std::vector<Item> items)
 {

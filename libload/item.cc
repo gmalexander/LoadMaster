@@ -1,4 +1,4 @@
-#include "Item.hh"
+#include "item.hh"
 
 Item::Item(std::string name, int runtime)
 {

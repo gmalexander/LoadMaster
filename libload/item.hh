@@ -1,6 +1,6 @@
-#ifndef item_h_h__
-#define item_h_h__
+#include <vector>
 #include <string>
+#include <climits>
 
 class Item
 {
@@ -15,5 +15,3 @@ class Item
        int RunTime;
        int TimeRemaining;
 };
-
-#endif

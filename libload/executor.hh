@@ -1,8 +1,4 @@
-#ifndef executor_h_h__
-#define executor_h_h__
-#include <string>
-#include <vector>
-#include "Item.hh"
+#include "item.cc"
 
 class Executor
 {
@@ -16,5 +12,3 @@ class Executor
 	     int OpenSlots;
 	     void PopItem(Item it);
 };
-
-#endif
