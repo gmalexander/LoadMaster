@@ -12,7 +12,7 @@ yautf:
 	cp YAUTF/bin/libyautf.so bin/libyautf.so
 
 item_test:
-    g++ libload/item_test.cc -o item_test -L$(BIN_PATH) -lyautf
+	g++ libload/item_test.cc -o item_test -L$(BIN_PATH) -lyautf
 
 dist:
 	rm bin/*.o
