@@ -15,7 +15,7 @@ yautf:
 	cp YAUTF/src/*.cc temp
 
 item_test:
-    cp libload/item* temp
+	cp libload/item* temp
 	g++ temp/item_test.cc -o bin/item_test -L${BIN_PATH} -lyautf
 
 dist:
