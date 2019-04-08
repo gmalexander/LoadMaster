@@ -1,5 +1,5 @@
 #include "item.cc"
-#include "yautf.cc"
+#include "yautf.hh"
 
 yautf::Test<bool>* case1_verifySubtraction()
 {
