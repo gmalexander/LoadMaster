@@ -18,7 +18,7 @@ yautf::Test<bool>* case1_verifyCompleteSubtraction()
     return verifySubtraction;
 }
 
-yautf::Test<bool>* case1_verifyIncompleteSubtraction()
+yautf::Test<bool>* case2_verifyIncompleteSubtraction()
 {
     std::string caseName = "Verify Incomplete Subtraction";
     std::string fixtureName = "Fixture";
@@ -35,7 +35,7 @@ yautf::Test<bool>* case1_verifyIncompleteSubtraction()
     return verifyIncompleteSubtraction;
 }
 
-yautf::Test<bool>* case1_verifyOvertimeSubtraction()
+yautf::Test<bool>* case3_verifyOvertimeSubtraction()
 {
     std::string caseName = "Verify Overtime Subtraction";
     std::string fixtureName = "Fixture";
