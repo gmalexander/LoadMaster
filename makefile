@@ -22,6 +22,6 @@ dist:
 	rm bin/*.o
 
 clean:
-	rm -f bin/*
-	rm -f temp/*
+	rm -rf bin/*
+	rm -rf temp/*
 
