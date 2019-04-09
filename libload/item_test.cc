@@ -52,7 +52,6 @@ yautf::Test<bool>* case3_verifyOvertimeSubtraction()
     return verifyOvertimeSubtraction;
 }
 
-
 int main()
 {
     auto manager = new yautf::TestManager<bool>();

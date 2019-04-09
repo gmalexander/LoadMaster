@@ -1,0 +1,64 @@
+#include "executor.cc"
+#include "yautf.hh"
+
+yautf::Test<bool>* case1_verifyItemPushOnNew()
+{
+    std::string caseName = "Verify Item Push on New Object";
+    std::string fixtureName = "Fixture1";
+    bool expectedValue = true;
+    int slots = 1;
+    int runTime = 100;
+    auto itemPushOnNew = new yautf::Test<bool>(caseName, expectedValue);
+
+    Item fixture1(fixtureName, runTime);
+    Executor sys(slots);
+    bool wasSuccessful = sys.PushItem(fixture1);
+    bool actualValue = wasSuccessful;
+
+    itemPushOnNew.SetActual(actualValue);
+    return itemPushOnNew;
+}
+
+yautf::Test<bool>* case2_verifyItemRejectedOnFull()
+{
+    std::string caseName = "Verify Item Rejected On Full";
+    std::string fixtureName = "Fixture1";
+    std::string secondFixtureName = "Fixture2";
+    bool expectedValue = false;
+    int slots = 1;
+    int runTime = 100;
+    auto itemRejectedOnFull = new yautf::Test<bool>(caseName, expectedValue);
+
+    Item fixture1(fixtureName, runTime);
+    Item fixture2(secondFixtureName, runTime);
+    Executor sys(slots);
+    sys.PushItem(fixture1);
+    bool wasFailure = sys.PushItem(fixture2);
+    bool actualValue = wasFailure;
+
+    itemRejectedOnFull.SetActual(actualValue);
+    return itemRejectedOnFull;
+}
+
+yautf::Test<bool>* case3_verifyFullTimeAppliedOneItem()
+{
+    std::string caseName = "Verify Full Time Applied Against One Item";
+    std::string fixtureName = "Fixture1";
+    std::string secondFixtureName = "Fixture2";
+    bool expectedValue = true;
+    int timeToSubtract = 100;
+    int slots = 1;
+    int runTime = 100;
+    auto fullTimeAppliedOneTime = new yautf::Test<bool>(caseName, expectedValue);
+
+    Item fixture(fixtureName, runTime);
+    Item fixture2(secondFixtureName, runTime);
+    Executor sys(slots);
+    sys.PushItem(fixture);
+    sys.ApplyTime(timeToSubtract);
+    bool wasSuccessful = sys.PushItem(fixture2);
+    bool actualValue = wasSuccessful;
+
+    fullTimeAppliedOneTime.SetActual(actualValue);
+    return fullTimeAppliedOneTime;
+}
