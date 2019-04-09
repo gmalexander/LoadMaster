@@ -4,7 +4,7 @@ Item::Item(std::string name, int runtime)
 {
      this->RunTime = runtime;
      this->Name = name;
-     this->TimeRemaining = this->RunTime;
+     this->TimeRemaining = runtime;
 }
 
 void Item::SubtractTime(int time)
