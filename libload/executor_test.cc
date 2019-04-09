@@ -15,7 +15,7 @@ yautf::Test<bool>* case1_verifyItemPushOnNew()
     bool wasSuccessful = sys.PushItem(fixture1);
     bool actualValue = wasSuccessful;
 
-    itemPushOnNew.SetActual(actualValue);
+    itemPushOnNew->SetActual(actualValue);
     return itemPushOnNew;
 }
 
@@ -36,7 +36,7 @@ yautf::Test<bool>* case2_verifyItemRejectedOnFull()
     bool wasFailure = sys.PushItem(fixture2);
     bool actualValue = wasFailure;
 
-    itemRejectedOnFull.SetActual(actualValue);
+    itemRejectedOnFull->SetActual(actualValue);
     return itemRejectedOnFull;
 }
 
@@ -59,7 +59,7 @@ yautf::Test<bool>* case3_verifyFullTimeAppliedOneItem()
     bool wasSuccessful = sys.PushItem(fixture2);
     bool actualValue = wasSuccessful;
 
-    fullTimeAppliedOneTime.SetActual(actualValue);
+    fullTimeAppliedOneTime->SetActual(actualValue);
     return fullTimeAppliedOneTime;
 }
 
