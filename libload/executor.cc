@@ -25,11 +25,11 @@ bool Executor::PushItem(Item it)
 
 void Executor::PopItem(Item item)
 {
-     for(auto it = this->Items.begin(); it != this->Items.end(); it++)
+     for(auto it = this->Items->begin(); it != this->Items->end(); it++)
      {
          if (it->GetName() == item.GetName())
          {
-	         this->Items.erase(it);
+	         this->Items->erase(it);
 	         this->OpenSlots++;
 	         break;
          }
@@ -38,7 +38,7 @@ void Executor::PopItem(Item item)
 
 void Executor::ApplyTime(int sec)
 {
-     for(auto item = this->Items.begin(); item != this->Items.end(); item++)
+     for(auto item = this->Items->begin(); item != this->Items->end(); item++)
      {
 	     item->SubtractTime(sec);
 	     if(item->IsDone())
