@@ -18,6 +18,11 @@ item_test:
 	cp libload/item* temp
 	g++ temp/item_test.cc -o bin/item_test -L${BIN_PATH} -lyautf
 
+executor_test:
+	cp libload/executor* temp
+	cp libload/item* temp
+	g++ temp/executor_test.cc -o bin/executor_test -L${BIN_PATH} -lyautf
+
 dist:
 	rm bin/*.o
 
