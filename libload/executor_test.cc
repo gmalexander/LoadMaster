@@ -62,3 +62,14 @@ yautf::Test<bool>* case3_verifyFullTimeAppliedOneItem()
     fullTimeAppliedOneTime.SetActual(actualValue);
     return fullTimeAppliedOneTime;
 }
+
+int main()
+{
+    auto manager = new yautf::TestManager<bool>();
+    manager->LoadTest(case1_verifyItemPushOnNew());
+    manager->LoadTest(case2_verifyItemRejectedOnFull());
+    manager->LoadTest(case3_verifyFullTimeAppliedOneItem());
+    manager->VerifyTests();
+    manager->DisplayAllResults();
+    delete manager;
+}
