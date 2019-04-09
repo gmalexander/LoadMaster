@@ -3,6 +3,8 @@
 Executor::Executor(int slots)
 {
      this->Slots = slots;
+     this->OpenSlots = slots;
+     this->Items = new std::vector<Item>();
 }
 
 bool Executor::PushItem(Item it)
