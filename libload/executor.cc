@@ -23,19 +23,6 @@ bool Executor::PushItem(Item it)
      }
 }
 
-void Executor::PopItem(Item item)
-{
-     for(auto it = this->Items->begin(); it != this->Items->end(); it++)
-     {
-         if (it->GetName() == item.GetName())
-         {
-	         this->Items->erase(it);
-	         this->OpenSlots++;
-	         break;
-         }
-     }
-}
-
 void Executor::ApplyTime(int sec)
 {
      for(auto item = this->Items->begin(); item != this->Items->end(); item++)
@@ -43,7 +30,12 @@ void Executor::ApplyTime(int sec)
 	     item->SubtractTime(sec);
 	     if(item->IsDone())
 	     {
-	         this->PopItem(*item);
+	         auto next = this->Items->erase(item);
+              this->OpenSlots++;
+              if (next == this->Items->end())
+              {
+                   break;
+              }
 	     }
      }
 }

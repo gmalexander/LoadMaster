@@ -10,5 +10,4 @@ class Executor
          std::vector<Item>* Items;
 	     int Slots;
 	     int OpenSlots;
-	     void PopItem(Item it);
 };
