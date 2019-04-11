@@ -25,17 +25,18 @@ bool Executor::PushItem(Item it)
 
 void Executor::ApplyTime(int sec)
 {
-     for(auto item = this->Items->begin(); item != this->Items->end(); item++)
+     auto item = this->Items->begin();
+     while (item != this->Items->end())
      {
-	     item->SubtractTime(sec);
-	     if(item->IsDone())
-	     {
-	         auto next = this->Items->erase(item);
-              this->OpenSlots++;
-              if (next == this->Items->end())
-              {
-                   break;
-              }
-	     }
+          item->SubtractTime(sec);
+          if(item->IsDone())
+          {
+               item = this->Items->erase(item);
+               this->OpenSlots++;
+          }
+          else
+          {
+               item++;
+          }
      }
 }
