@@ -10,7 +10,7 @@ int Coordinator::Calculate()
     bool alldone = false;
     int totalSeconds = 0;
     int interval = this->Control->GetShortestTime();
-    while (!this->Control->GetItems()->empty())
+    while (!this->Control->GetItems().empty())
     {
        this->Control->LoadStep();
        this->Control->TimeStep(interval);
