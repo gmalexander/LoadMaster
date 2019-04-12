@@ -5,7 +5,7 @@ Coordinator::Coordinator(std::vector<Executor> executors, std::vector<Item> item
     this->Control = new Controller(executors, items);
 }
 
-int Coordinator::CalculateN3Approximation()
+int Coordinator::Calculate()
 {
     bool alldone = false;
     int totalSeconds = 0;

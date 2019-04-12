@@ -1,6 +1,6 @@
 #include "controller.hh"
 
-Controller::Controller(std::vector<Executor> executors, std::vector<Item> items)
+Controller::Controller(std::vector<Executor>* executors, std::vector<Item>* items)
 {
     this->Items = items;
     this->Executors = executors;
@@ -20,24 +20,17 @@ int Controller::GetShortestTime()
     return interval;
 }
 
-std::vector<Item>::iterator Controller::LoadStep(std::vector<Item>::iterator nextItem)
+void Controller::LoadStep()
 {
-    for(auto exec = this->Executors->begin(); exec != this->Executors->end(); exec++)
+    for(auto executor = this->Executors->begin(); executor != this->Executors->end(); executor++)
     {
-	    if (nextItem != this->Items->end())
-	    {
-	       bool success = false;
-	       do
-	       {
-             success = exec->PushItem(*nextItem);
-	          if (success)
-             {
-                nextItem++;
-             }
-	       } while (success);
-	    }
+        Item currentItem = this->Items->pop_back();
+        bool successful = executor->PushItem(currentItem);
+        if (!successful)
+        {
+            this->Items->push_back(currentItem);
+        }
     }
-    return nextItem;
 }
 
 void Controller::TimeStep(int interval)
@@ -47,5 +40,14 @@ void Controller::TimeStep(int interval)
        exec->ApplyTime(interval);
     }
 }
-	  
+
+std::vector<Item> GetItems()
+{
+    return *(this->Items);
+}
+
+std::vector<Executor> GetExecutors()
+{
+    return *(this->Executors);
+}
     
