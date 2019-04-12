@@ -10,11 +10,11 @@ int Coordinator::CalculateN3Approximation()
     bool alldone = false;
     int totalSeconds = 0;
     auto nextItem = this->Control->Items.begin();
-    int interval = this->N3_GetShortestTime();
+    int interval = this->Control->GetShortestTime();
     while (!alldone)
     {
-       nextItem = this->N3_LoadStep(nextItem);
-       this->N3_TimeStep(interval);
+       nextItem = this->Control->LoadStep(nextItem);
+       this->Control->TimeStep(interval);
        totalSeconds += interval;
     }
     return totalSeconds;

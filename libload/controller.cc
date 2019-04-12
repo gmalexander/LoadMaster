@@ -6,7 +6,7 @@ Controller::Controller(std::vector<Executor> executors, std::vector<Item> items)
     this->Executors = executors;
 }
 
-int Controller::N3_GetShortestTime()
+int Controller::GetShortestTime()
 {
     int interval = INT_MAX;
     for(auto item = this->Items->begin(); item < this->Items->end(); item++)
@@ -20,7 +20,7 @@ int Controller::N3_GetShortestTime()
     return interval;
 }
 
-std::vector<Item>::iterator Controller::N3_LoadStep(std::vector<Item>::iterator nextItem)
+std::vector<Item>::iterator Controller::LoadStep(std::vector<Item>::iterator nextItem)
 {
     for(auto exec = this->Executors->begin(); exec != this->Executors->end(); exec++)
     {
@@ -40,7 +40,7 @@ std::vector<Item>::iterator Controller::N3_LoadStep(std::vector<Item>::iterator 
     return nextItem;
 }
 
-void Controller::N3_TimeStep(int interval)
+void Controller::TimeStep(int interval)
 {
     for(auto exec = this->Executors->begin(); exec != this->Executors->end(); exec++)
     {
