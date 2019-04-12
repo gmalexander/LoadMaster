@@ -47,20 +47,5 @@ void Controller::N3_TimeStep(int interval)
        exec->ApplyTime(interval);
     }
 }
-
-int Controller::CalculateN3Approximation()
-{
-    bool alldone = false;
-    int totalSeconds = 0;
-    auto nextItem = this->Items.begin();
-    int interval = this->N3_GetShortestTime();
-    while (!alldone)
-    {
-       nextItem = this->N3_LoadStep(nextItem);
-       this->N3_TimeStep(interval);
-       totalSeconds += interval;
-    }
-    return totalSeconds;
-}
 	  
     
