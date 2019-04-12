@@ -9,7 +9,7 @@ Controller::Controller(std::vector<Executor> executors, std::vector<Item> items)
 int Controller::N3_GetShortestTime()
 {
     int interval = INT_MAX;
-    for(auto item = this->Items.begin(); item < this->Items.end(); item++)
+    for(auto item = this->Items->begin(); item < this->Items->end(); item++)
     {
        int runtime = item->GetRunTime();
        if (interval > runtime)
@@ -22,9 +22,9 @@ int Controller::N3_GetShortestTime()
 
 std::vector<Item>::iterator Controller::N3_LoadStep(std::vector<Item>::iterator nextItem)
 {
-    for(auto exec = this->Executors.begin(); exec != this->Executors.end(); exec++)
+    for(auto exec = this->Executors->begin(); exec != this->Executors->end(); exec++)
     {
-	    if (nextItem != this->Items.end())
+	    if (nextItem != this->Items->end())
 	    {
 	       bool success = false;
 	       do
@@ -42,7 +42,7 @@ std::vector<Item>::iterator Controller::N3_LoadStep(std::vector<Item>::iterator 
 
 void Controller::N3_TimeStep(int interval)
 {
-    for(auto exec = this->Executors.begin(); exec != this->Executors.end(); exec++)
+    for(auto exec = this->Executors->begin(); exec != this->Executors->end(); exec++)
     {
        exec->ApplyTime(interval);
     }

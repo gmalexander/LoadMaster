@@ -2,8 +2,8 @@
 
 class Coordinator {
     public:
-        Coordinator(std::vector<Executor> executors, std::vector<Item> items);
+        Coordinator(std::vector<Executor>* executors, std::vector<Item>* items);
         int CalculateN3Approximation();
     private:
-        Controller* control;
+        Controller* Control;
 }
