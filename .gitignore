@@ -4,3 +4,9 @@
 *.exe
 yautf/*
 *.sh
+cmake-build-debug/*
+*.cmake
+*.a
+*.a*
+*.o*
+*.so*
