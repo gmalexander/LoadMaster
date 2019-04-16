@@ -9,4 +9,5 @@ cmake-build-debug/*
 *.a
 *.a*
 *.o*
+.idea/*
 *.so*
