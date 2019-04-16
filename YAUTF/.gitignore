@@ -1,0 +1,14 @@
+cmake-build-debug/*
+*.so
+*.so*
+*.o
+*.o*
+makefile
+.idea/*
+*.a
+*.a*
+CMakeCache.txt
+CMakeFiles/*
+*.cmake
+*.cbp
+Makefile
