@@ -24,11 +24,11 @@ void Controller::LoadStep()
 {
     for(auto executor = this->Executors->begin(); executor != this->Executors->end(); executor++)
     {
-        Item currentItem = this->Items->pop_back();
+        Item currentItem = this->Items->at(this->Items->size()-1);
         bool successful = executor->PushItem(currentItem);
-        if (!successful)
+        if (successful)
         {
-            this->Items->push_back(currentItem);
+            this->Items->pop_back();
         }
     }
 }
@@ -41,12 +41,12 @@ void Controller::TimeStep(int interval)
     }
 }
 
-std::vector<Item> GetItems()
+std::vector<Item> Controller::GetItems()
 {
     return *(this->Items);
 }
 
-std::vector<Executor> GetExecutors()
+std::vector<Executor> Controller::GetExecutors()
 {
     return *(this->Executors);
 }
