@@ -4,7 +4,7 @@
 
 class Item {
     public:
-       Item(std::string name, int runtime);
+       Item(std::string* name, int runtime);
        void SubtractTime(int time);
        bool IsDone();
        std::string GetName();

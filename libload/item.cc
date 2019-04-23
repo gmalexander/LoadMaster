@@ -1,8 +1,8 @@
 #include "item.hh"
 
-Item::Item(std::string name, int runtime) {
+Item::Item(std::string* name, int runtime) {
      this->RunTime = runtime;
-     this->Name = name;
+     this->Name = *name;
      this->TimeRemaining = runtime;
 }
 
@@ -11,14 +11,7 @@ void Item::SubtractTime(int time) {
 }
 
 bool Item::IsDone() {
-     if(this->TimeRemaining <= 0)
-     {
-	     return true;
-     }
-     else
-     {
-	     return false;
-     }
+     return (this->TimeRemaining <= 0);
 }
 
 std::string Item::GetName() {

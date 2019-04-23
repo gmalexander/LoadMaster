@@ -8,7 +8,7 @@ yautf::Test<bool>* case1_verifyCompleteSubtraction() {
     bool expectedValue = true;
     int valueToSubtract = 100;
     auto verifySubtraction = new yautf::Test<bool>(caseName, expectedValue);
-    Item fixture(fixtureName, runTime);
+    Item fixture(&fixtureName, runTime);
     bool actualValue;
 
     fixture.SubtractTime(valueToSubtract);
@@ -24,7 +24,7 @@ yautf::Test<bool>* case2_verifyIncompleteSubtraction() {
     bool expectedValue = false;
     int valueToSubtract = 50;
     auto verifyIncompleteSubtraction = new yautf::Test<bool>(caseName, expectedValue);
-    Item fixture(fixtureName, runTime);
+    Item fixture(&fixtureName, runTime);
     bool actualValue;
 
     fixture.SubtractTime(valueToSubtract);
@@ -40,7 +40,7 @@ yautf::Test<bool>* case3_verifyOvertimeSubtraction() {
     bool expectedValue = true;
     int valueToSubtract = 101;
     auto verifyOvertimeSubtraction = new yautf::Test<bool>(caseName, expectedValue);
-    Item fixture(fixtureName, runTime);
+    Item fixture(&fixtureName, runTime);
     bool actualValue;
 
     fixture.SubtractTime(valueToSubtract);
