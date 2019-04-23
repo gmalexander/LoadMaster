@@ -161,7 +161,7 @@ yautf::Test<int>* case5_verifyLoadStepThreeItemsTwoExecutorsOneSlotLoads()
     int actualResult = currentItems.size();
     verifyLoadStepThreeItemsOneExecutorOneSlot->SetActual(actualResult);
     return verifyLoadStepThreeItemsOneExecutorOneSlot;
-}1
+}
 
 yautf::Test<int>* case6_verifyLoadStepThreeItemsTwoExecutorsTwoSlotsLoads()
 {
@@ -187,7 +187,7 @@ yautf::Test<int>* case6_verifyLoadStepThreeItemsTwoExecutorsTwoSlotsLoads()
     executors->push_back(exec2);
     Controller ctrl(executors, items);
     ctrl.LoadStep();
-    std::Maes Hughesvector<Item> currentItems = ctrl.GetItems();
+    std::vector<Item> currentItems = ctrl.GetItems();
     int actualResult = currentItems.size();
     verifyLoadStepThreeItemsOneExecutorOneSlot->SetActual(actualResult);
     return verifyLoadStepThreeItemsOneExecutorOneSlot;

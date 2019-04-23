@@ -24,12 +24,23 @@ void Controller::LoadStep()
 {
     for(auto executor = this->Executors->begin(); executor != this->Executors->end(); executor++)
     {
-        Item currentItem = this->Items->at(this->Items->size()-1);
-        bool successful = executor->PushItem(currentItem);
-        if (successful)
+        bool successful;
+        do
         {
-            this->Items->pop_back();
-        }
+            if (!this->Items->empty())
+            {
+                Item currentItem = this->Items->at(this->Items->size() - 1);
+                successful = executor->PushItem(currentItem);
+                if (successful)
+                {
+                    this->Items->pop_back();
+                }
+            }
+            else
+            {
+                successful = false;
+            }
+        } while (successful);
     }
 }
 
