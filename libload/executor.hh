@@ -1,7 +1,6 @@
 #include "item.cc"
 
-class Executor
-{
+class Executor {
      public:
 	     Executor(int slots);
 	     void ApplyTime(int sec);

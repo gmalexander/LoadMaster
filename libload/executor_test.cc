@@ -1,8 +1,7 @@
 #include "executor.cc"
 #include "yautf.hh"
 
-yautf::Test<bool>* case1_verifyItemPushOnNew()
-{
+yautf::Test<bool>* case1_verifyItemPushOnNew() {
     std::string caseName = "Verify Item Push on New Object";
     std::string fixtureName = "Fixture1";
     bool expectedValue = true;
@@ -19,8 +18,7 @@ yautf::Test<bool>* case1_verifyItemPushOnNew()
     return itemPushOnNew;
 }
 
-yautf::Test<bool>* case2_verifyItemRejectedOnFull()
-{
+yautf::Test<bool>* case2_verifyItemRejectedOnFull() {
     std::string caseName = "Verify Item Rejected On Full";
     std::string fixtureName = "Fixture1";
     std::string secondFixtureName = "Fixture2";
@@ -40,8 +38,7 @@ yautf::Test<bool>* case2_verifyItemRejectedOnFull()
     return itemRejectedOnFull;
 }
 
-yautf::Test<bool>* case3_verifyFullTimeAppliedOneItem()
-{
+yautf::Test<bool>* case3_verifyFullTimeAppliedOneItem() {
     std::string caseName = "Verify Full Time Applied Against One Item";
     std::string fixtureName = "Fixture1";
     std::string secondFixtureName = "Fixture2";
@@ -63,8 +60,7 @@ yautf::Test<bool>* case3_verifyFullTimeAppliedOneItem()
     return fullTimeAppliedOneTime;
 }
 
-yautf::Test<bool>* case4_verifyFullTimeAppliedTwoItems()
-{
+yautf::Test<bool>* case4_verifyFullTimeAppliedTwoItems() {
     std::string caseName = "Verify Full Time Applied Against Two Items";
     std::string fixtureName = "Fixture1";
     std::string secondFixtureName = "Fixture2";
@@ -91,8 +87,7 @@ yautf::Test<bool>* case4_verifyFullTimeAppliedTwoItems()
     return fullTimeAppliedOneTime;
 }
 
-int main()
-{
+int main() {
     auto manager = new yautf::TestManager<bool>();
     manager->LoadTest(case1_verifyItemPushOnNew());
     manager->LoadTest(case2_verifyItemRejectedOnFull());

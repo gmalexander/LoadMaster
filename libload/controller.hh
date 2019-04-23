@@ -1,7 +1,6 @@
 #include "executor.cc"
 
-class Controller
-{
+class Controller {
      public:
 	     Controller(std::vector<Executor>* executors, std::vector<Item>* items);
 		 int GetShortestTime();

@@ -2,8 +2,7 @@
 #include <string>
 #include <climits>
 
-class Item
-{
+class Item {
     public:
        Item(std::string name, int runtime);
        void SubtractTime(int time);

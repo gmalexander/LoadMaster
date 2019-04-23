@@ -9,8 +9,7 @@
  *   SUT which would cause say two cases to still be able to be coupled, but the third case to not be
  */
 
-yautf::Test<int>* case1_verifyShortestTimeThreeInputsShortestFirst()
-{
+yautf::Test<int>* case1_verifyShortestTimeThreeInputsShortestFirst() {
     std::string caseName = "Verify Shortest Time Between Three Items Shortest First";
     std::string fixture1Name = "Fixture 1";
     std::string fixture2Name = "Fixture 2";
@@ -41,8 +40,7 @@ yautf::Test<int>* case1_verifyShortestTimeThreeInputsShortestFirst()
     return verifyShortestTime;
 }
 
-yautf::Test<int>* case2_verifyShortestTimeThreeInputsShortestSecond()
-{
+yautf::Test<int>* case2_verifyShortestTimeThreeInputsShortestSecond() {
     std::string caseName = "Verify Shortest Time Between Three Items Shortest Second";
     std::string fixture1Name = "Fixture 1";
     std::string fixture2Name = "Fixture 2";
@@ -73,8 +71,7 @@ yautf::Test<int>* case2_verifyShortestTimeThreeInputsShortestSecond()
     return verifyShortestTime;
 }
 
-yautf::Test<int>* case3_verifyShortestTimeThreeInputsShortestThird()
-{
+yautf::Test<int>* case3_verifyShortestTimeThreeInputsShortestThird() {
     std::string caseName = "Verify Shortest Time Between Three Items Shortest Third";
     std::string fixture1Name = "Fixture 1";
     std::string fixture2Name = "Fixture 2";
@@ -105,8 +102,7 @@ yautf::Test<int>* case3_verifyShortestTimeThreeInputsShortestThird()
     return verifyShortestTime;
 }
 
-yautf::Test<int>* case4_verifyLoadStepThreeItemsOneExecutorOneSlotLoads()
-{
+yautf::Test<int>* case4_verifyLoadStepThreeItemsOneExecutorOneSlotLoads() {
     std::string caseName = "Verify Load Step with Three Items, One Executor, and One Slot";
     std::string fixture1Name = "fixture1";
     std::string fixture2Name = "fixture2";
@@ -133,8 +129,7 @@ yautf::Test<int>* case4_verifyLoadStepThreeItemsOneExecutorOneSlotLoads()
     return verifyLoadStepThreeItemsOneExecutorOneSlot;
 }
 
-yautf::Test<int>* case5_verifyLoadStepThreeItemsTwoExecutorsOneSlotLoads()
-{
+yautf::Test<int>* case5_verifyLoadStepThreeItemsTwoExecutorsOneSlotLoads() {
     std::string caseName = "Verify Load Step with Three Items, Two Executors, and One Slot";
     std::string fixture1Name = "fixture1";
     std::string fixture2Name = "fixture2";
@@ -163,8 +158,7 @@ yautf::Test<int>* case5_verifyLoadStepThreeItemsTwoExecutorsOneSlotLoads()
     return verifyLoadStepThreeItemsOneExecutorOneSlot;
 }
 
-yautf::Test<int>* case6_verifyLoadStepThreeItemsTwoExecutorsTwoSlotsLoads()
-{
+yautf::Test<int>* case6_verifyLoadStepThreeItemsTwoExecutorsTwoSlotsLoads() {
     std::string caseName = "Verify Load Step with Three Items, Two Executors, and Two Slots";
     std::string fixture1Name = "fixture1";
     std::string fixture2Name = "fixture2";
@@ -193,8 +187,7 @@ yautf::Test<int>* case6_verifyLoadStepThreeItemsTwoExecutorsTwoSlotsLoads()
     return verifyLoadStepThreeItemsOneExecutorOneSlot;
 }
 
-int main()
-{
+int main() {
     auto mgmt = new yautf::TestManager<int>();
     mgmt->LoadTest(case1_verifyShortestTimeThreeInputsShortestFirst());
     mgmt->LoadTest(case2_verifyShortestTimeThreeInputsShortestSecond());

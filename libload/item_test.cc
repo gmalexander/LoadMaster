@@ -1,8 +1,7 @@
 #include "item.cc"
 #include "yautf.hh"
 
-yautf::Test<bool>* case1_verifyCompleteSubtraction()
-{
+yautf::Test<bool>* case1_verifyCompleteSubtraction() {
     std::string caseName = "Verify Complete Subtraction";
     std::string fixtureName = "Fixture";
     int runTime = 100;
@@ -18,8 +17,7 @@ yautf::Test<bool>* case1_verifyCompleteSubtraction()
     return verifySubtraction;
 }
 
-yautf::Test<bool>* case2_verifyIncompleteSubtraction()
-{
+yautf::Test<bool>* case2_verifyIncompleteSubtraction() {
     std::string caseName = "Verify Incomplete Subtraction";
     std::string fixtureName = "Fixture";
     int runTime = 100;
@@ -35,8 +33,7 @@ yautf::Test<bool>* case2_verifyIncompleteSubtraction()
     return verifyIncompleteSubtraction;
 }
 
-yautf::Test<bool>* case3_verifyOvertimeSubtraction()
-{
+yautf::Test<bool>* case3_verifyOvertimeSubtraction() {
     std::string caseName = "Verify Overtime Subtraction";
     std::string fixtureName = "Fixture";
     int runTime = 100;
@@ -52,8 +49,7 @@ yautf::Test<bool>* case3_verifyOvertimeSubtraction()
     return verifyOvertimeSubtraction;
 }
 
-int main()
-{
+int main() {
     auto manager = new yautf::TestManager<bool>();
     manager->LoadTest(case1_verifyCompleteSubtraction());
     manager->LoadTest(case2_verifyIncompleteSubtraction());
