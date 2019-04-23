@@ -11,7 +11,7 @@ yautf::Test<bool>* case1_verifyItemPushOnNew() {
 
     Item fixture1(fixtureName, runTime);
     Executor sys(slots);
-    bool wasSuccessful = sys.PushItem(fixture1);
+    bool wasSuccessful = sys.PushItem(&fixture1);
     bool actualValue = wasSuccessful;
 
     itemPushOnNew->SetActual(actualValue);
@@ -30,8 +30,8 @@ yautf::Test<bool>* case2_verifyItemRejectedOnFull() {
     Item fixture1(fixtureName, runTime);
     Item fixture2(secondFixtureName, runTime);
     Executor sys(slots);
-    sys.PushItem(fixture1);
-    bool wasFailure = sys.PushItem(fixture2);
+    sys.PushItem(&fixture1);
+    bool wasFailure = sys.PushItem(&fixture2);
     bool actualValue = wasFailure;
 
     itemRejectedOnFull->SetActual(actualValue);
@@ -51,9 +51,9 @@ yautf::Test<bool>* case3_verifyFullTimeAppliedOneItem() {
     Item fixture(fixtureName, runTime);
     Item fixture2(secondFixtureName, runTime);
     Executor sys(slots);
-    sys.PushItem(fixture);
+    sys.PushItem(&fixture);
     sys.ApplyTime(timeToSubtract);
-    bool wasSuccessful = sys.PushItem(fixture2);
+    bool wasSuccessful = sys.PushItem(&fixture2);
     bool actualValue = wasSuccessful;
 
     fullTimeAppliedOneTime->SetActual(actualValue);
@@ -77,10 +77,10 @@ yautf::Test<bool>* case4_verifyFullTimeAppliedTwoItems() {
     Item fixture3(thirdFixtureName, runTime);
     Item fixture4(fourthFixtureName, runTime);
     Executor sys(slots);
-    sys.PushItem(fixture);
-    sys.PushItem(fixture2);
+    sys.PushItem(&fixture);
+    sys.PushItem(&fixture2);
     sys.ApplyTime(timeToSubtract);
-    bool wasSuccessful = sys.PushItem(fixture3) && sys.PushItem(fixture4);
+    bool wasSuccessful = sys.PushItem(&fixture3) && sys.PushItem(&fixture4);
     bool actualValue = wasSuccessful;
 
     fullTimeAppliedOneTime->SetActual(actualValue);

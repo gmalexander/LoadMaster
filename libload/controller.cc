@@ -17,12 +17,12 @@ int Controller::GetShortestTime() {
 }
 
 void Controller::LoadStep() {
-    for(auto executor = this->Executors->begin(); executor != this->Executors->end(); executor++) {
+    for(auto executor : *(this->Executors)) {
         bool successful;
         do {
             if (!this->Items->empty()) {
                 Item currentItem = this->Items->at(this->Items->size() - 1);
-                successful = executor->PushItem(currentItem);
+                successful = executor.PushItem(&currentItem);
                 if (successful) {
                     this->Items->pop_back();
                 }
@@ -36,8 +36,8 @@ void Controller::LoadStep() {
 
 void Controller::TimeStep(int interval)
 {
-    for(auto exec = this->Executors->begin(); exec != this->Executors->end(); exec++) {
-       exec->ApplyTime(interval);
+    for(auto executor : *(this->Executors)) {
+       executor.ApplyTime(interval);
     }
 }
 

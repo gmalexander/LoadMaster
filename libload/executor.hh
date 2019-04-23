@@ -2,11 +2,10 @@
 
 class Executor {
      public:
-	     Executor(int slots);
+	     explicit Executor(int slots);
 	     void ApplyTime(int sec);
-         bool PushItem(Item it);
+         bool PushItem(Item* it);
      private:
          std::vector<Item>* Items;
-	     int Slots;
 	     int OpenSlots;
 };
