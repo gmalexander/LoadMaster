@@ -187,6 +187,59 @@ yautf::Test<int>* case6_verifyLoadStepThreeItemsTwoExecutorsTwoSlotsLoads() {
     return verifyLoadStepThreeItemsOneExecutorOneSlot;
 }
 
+yautf::Test<int>* case7_verifyTimeAppliedOneExecutorOneItemOneSlot() {
+    std::string caseName = "Verify Time Applied to One Executor with One Item and One Slot";
+    std::string fixture1Name = "fixture1";
+    int runTime = 100;
+    int interval = runTime;
+    int slots = 1;
+    int expectedResult = 0;
+    int onlyExecutorIndex = 0;
+    auto verifyTimeAppliedOneExecutorOneItemOneSlot = new yautf::Test<int>(caseName, expectedResult);
+    Item fixture1(&fixture1Name, runTime);
+    Executor exec(slots);
+    auto items = new std::vector<Item>();
+    items->push_back(fixture1);
+    auto executors = new std::vector<Executor>();
+    executors->push_back(exec);
+    Controller ctrl(executors, items);
+    ctrl.LoadStep();
+    ctrl.TimeStep(interval);
+    std::vector<Executor> currentExecs = ctrl.GetExecutors();
+    Executor originalExec = currentExecs.at(onlyExecutorIndex);
+    std::vector<Item> currentItems = originalExec.GetItems();
+    int actualResult = currentItems.size();
+    verifyTimeAppliedOneExecutorOneItemOneSlot->SetActual(actualResult);
+    return verifyTimeAppliedOneExecutorOneItemOneSlot;
+}
+
+yautf::Test<int>* case8_verifyNotFullTimeAppliedOneExecutorOneItemOneSlot() {
+    std::string caseName = "Verify Not Full Time Applied to One Executor with One Item and One Slot";
+    std::string fixture1Name = "fixture1";
+    int runTime = 100;
+    int interval = runTime/2;
+    int slots = 1;
+    int expectedResult = 1;
+    int onlyExecutorIndex = 0;
+    auto verifyNotFullTimeAppliedOneExecutorOneItemOneSlot = new yautf::Test<int>(caseName, expectedResult);
+    Item fixture1(&fixture1Name, runTime);
+    Executor exec(slots);
+    auto items = new std::vector<Item>();
+    items->push_back(fixture1);
+    auto executors = new std::vector<Executor>();
+    executors->push_back(exec);
+    Controller ctrl(executors, items);
+    ctrl.LoadStep();
+    ctrl.TimeStep(interval);
+    std::vector<Executor> currentExecs = ctrl.GetExecutors();
+    Executor originalExec = currentExecs.at(onlyExecutorIndex);
+    std::vector<Item> currentItems = originalExec.GetItems();
+    int actualResult = currentItems.size();
+    verifyNotFullTimeAppliedOneExecutorOneItemOneSlot->SetActual(actualResult);
+    return verifyNotFullTimeAppliedOneExecutorOneItemOneSlot;
+}
+
+
 int main() {
     auto mgmt = new yautf::TestManager<int>();
     mgmt->LoadTest(case1_verifyShortestTimeThreeInputsShortestFirst());
@@ -195,6 +248,8 @@ int main() {
     mgmt->LoadTest(case4_verifyLoadStepThreeItemsOneExecutorOneSlotLoads());
     mgmt->LoadTest(case5_verifyLoadStepThreeItemsTwoExecutorsOneSlotLoads());
     mgmt->LoadTest(case6_verifyLoadStepThreeItemsTwoExecutorsTwoSlotsLoads());
+    mgmt->LoadTest(case7_verifyTimeAppliedOneExecutorOneItemOneSlot());
+    mgmt->LoadTest(case8_verifyNotFullTimeAppliedOneExecutorOneItemOneSlot());
     mgmt->VerifyTests();
     mgmt->DisplayAllResults();
     delete mgmt;
