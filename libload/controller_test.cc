@@ -239,6 +239,99 @@ yautf::Test<int>* case8_verifyNotFullTimeAppliedOneExecutorOneItemOneSlot() {
     return verifyNotFullTimeAppliedOneExecutorOneItemOneSlot;
 }
 
+yautf::Test<int>* case9_verifyNotFullTimeAppliedOneExecutorTwoItemsThreeSlots() {
+    std::string caseName = "Verify Not Full Time Applied to One Executor with Two Items and Three Slots";
+    std::string fixture1Name = "fixture1";
+    std::string fixture2Name = "fixture2";
+    int fixture1RunTime = 100;
+    int fixture2RunTime = 150;
+    int interval = fixture1RunTime/2;
+    int slots = 3;
+    int expectedResult = 2;
+    int onlyExecutorIndex = 0;
+    auto verifyNotFullTimeAppliedOneExecutorTwoItemsThreeSlots = new yautf::Test<int>(caseName, expectedResult);
+    Item fixture1(&fixture1Name, fixture1RunTime);
+    Item fixture2(&fixture2Name, fixture2RunTime);
+    Executor exec(slots);
+    auto items = new std::vector<Item>();
+    items->push_back(fixture1);
+    items->push_back(fixture2);
+    auto executors = new std::vector<Executor>();
+    executors->push_back(exec);
+    Controller ctrl(executors, items);
+    ctrl.LoadStep();
+    ctrl.TimeStep(interval);
+    std::vector<Executor> currentExecs = ctrl.GetExecutors();
+    Executor originalExec = currentExecs.at(onlyExecutorIndex);
+    std::vector<Item> currentItems = originalExec.GetItems();
+    int actualResult = currentItems.size();
+    verifyNotFullTimeAppliedOneExecutorTwoItemsThreeSlots->SetActual(actualResult);
+    return verifyNotFullTimeAppliedOneExecutorTwoItemsThreeSlots;
+}
+
+yautf::Test<int>* case10_verifyFullTimeAppliedOneExecutorOneItemsButNotOtherThreeSlots() {
+    std::string caseName = "Verify Full Time Applied to One Item with One Executor but Two Items and Three Slots";
+    std::string fixture1Name = "fixture1";
+    std::string fixture2Name = "fixture2";
+    int fixture1RunTime = 100;
+    int fixture2RunTime = 150;
+    int interval = fixture1RunTime;
+    int slots = 3;
+    int expectedResult = 1;
+    int onlyExecutorIndex = 0;
+    auto verifyFullTimeAppliedOneExecutorOneItemsButNotOtherThreeSlots = new yautf::Test<int>(caseName, expectedResult);
+    Item fixture1(&fixture1Name, fixture1RunTime);
+    Item fixture2(&fixture2Name, fixture2RunTime);
+    Executor exec(slots);
+    auto items = new std::vector<Item>();
+    items->push_back(fixture1);
+    items->push_back(fixture2);
+    auto executors = new std::vector<Executor>();
+    executors->push_back(exec);
+    Controller ctrl(executors, items);
+    ctrl.LoadStep();
+    ctrl.TimeStep(interval);
+    std::vector<Executor> currentExecs = ctrl.GetExecutors();
+    Executor originalExec = currentExecs.at(onlyExecutorIndex);
+    std::vector<Item> currentItems = originalExec.GetItems();
+    int actualResult = currentItems.size();
+    verifyFullTimeAppliedOneExecutorOneItemsButNotOtherThreeSlots->SetActual(actualResult);
+    return verifyFullTimeAppliedOneExecutorOneItemsButNotOtherThreeSlots;
+}
+yautf::Test<int>* case11_verifyFullTimeAppliedTwoExecutorsOneItemButNotOtherOneSlot() {
+    std::string caseName = "Verify Full Time Applied to One Item with Two Executors but Two Items and One Slot";
+    std::string fixture1Name = "fixture1";
+    std::string fixture2Name = "fixture2";
+    int fixture1RunTime = 100;
+    int fixture2RunTime = 150;
+    int interval = fixture1RunTime;
+    int slots = 1;
+    int expectedResult = 1;
+    auto verifyFullTimeAppliedTwoExecutorsOneItemButNotOtherOneSlot = new yautf::Test<int>(caseName, expectedResult);
+    Item fixture1(&fixture1Name, fixture1RunTime);
+    Item fixture2(&fixture2Name, fixture2RunTime);
+    Executor exec(slots);
+    Executor exec2(slots);
+    auto items = new std::vector<Item>();
+    items->push_back(fixture1);
+    items->push_back(fixture2);
+    auto executors = new std::vector<Executor>();
+    executors->push_back(exec);
+    executors->push_back(exec2);
+    Controller ctrl(executors, items);
+    ctrl.LoadStep();
+    ctrl.TimeStep(interval);
+    std::vector<Executor> currentExecs = ctrl.GetExecutors();
+    int actualResult = 0;
+    for (auto currentExec : currentExecs)
+    {
+        std::vector<Item> currentItems = currentExec.GetItems();
+        actualResult += currentItems.size();
+    }
+    verifyFullTimeAppliedTwoExecutorsOneItemButNotOtherOneSlot->SetActual(actualResult);
+    return verifyFullTimeAppliedTwoExecutorsOneItemButNotOtherOneSlot;
+}
+
 
 int main() {
     auto mgmt = new yautf::TestManager<int>();
@@ -250,6 +343,9 @@ int main() {
     mgmt->LoadTest(case6_verifyLoadStepThreeItemsTwoExecutorsTwoSlotsLoads());
     mgmt->LoadTest(case7_verifyTimeAppliedOneExecutorOneItemOneSlot());
     mgmt->LoadTest(case8_verifyNotFullTimeAppliedOneExecutorOneItemOneSlot());
+    mgmt->LoadTest(case9_verifyNotFullTimeAppliedOneExecutorTwoItemsThreeSlots());
+    mgmt->LoadTest(case10_verifyFullTimeAppliedOneExecutorOneItemsButNotOtherThreeSlots());
+    mgmt->LoadTest(case11_verifyFullTimeAppliedTwoExecutorsOneItemButNotOtherOneSlot());
     mgmt->VerifyTests();
     mgmt->DisplayAllResults();
     delete mgmt;
