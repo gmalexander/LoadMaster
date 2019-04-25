@@ -31,3 +31,7 @@ void Executor::ApplyTime(int sec) {
           }
      }
 }
+
+std::vector<Item> Executor::GetItems() {
+    return *(this->Items);
+}
