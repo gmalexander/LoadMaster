@@ -24,3 +24,7 @@ target_link_libraries(executor_test yautf)
 ## Controller Test
 add_executable(controller_test libload/controller_test.cc)
 target_link_libraries(controller_test yautf)
+
+## Coordinator Test
+add_executable(coordinator_test libload/coordinator_test.cc)
+target_link_libraries(coordinator_test yautf)

@@ -6,4 +6,4 @@ class Coordinator {
         int Calculate();
     private:
         Controller* Control;
-}
+};
