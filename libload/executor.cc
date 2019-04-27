@@ -1,6 +1,7 @@
 #include "executor.hh"
 
 Executor::Executor(int slots) {
+     this->Slots = slots;
      this->OpenSlots = slots;
      this->Items = new std::vector<Item>();
 }
@@ -30,6 +31,11 @@ void Executor::ApplyTime(int sec) {
                item++;
           }
      }
+}
+
+bool Executor::IsFree()
+{
+    return this->Slots == this->OpenSlots;
 }
 
 std::vector<Item> Executor::GetItems() {

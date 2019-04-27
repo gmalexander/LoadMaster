@@ -24,7 +24,7 @@ yautf::Test<int>* case1_verifyTimeForOneExecutorOneSlotOneItem()
 yautf::Test<int>* case2_verifyTimeForOneExecutorOneSlotTwoItems()
 {
     std::string caseName = "Verify Proper Time for One Executor with One Slot and Two Items";
-    int expectedValue = 250;
+    int expectedValue = 200;
     auto verifyTimeForOneExecutorOneSlotOneItem = new yautf::Test<int>(caseName, expectedValue);
     std::string fixtureName = "Fixture 1";
     std::string fixture2Name = "Fixture 2";

@@ -1,4 +1,5 @@
 #include "controller.hh"
+#include <iostream>
 
 Controller::Controller(std::vector<Executor>* executors, std::vector<Item>* items) {
     this->Items = items;
@@ -34,11 +35,19 @@ void Controller::LoadStep() {
     }
 }
 
-void Controller::TimeStep(int interval)
-{
+void Controller::TimeStep(int interval) {
     for(auto executor : *(this->Executors)) {
        executor.ApplyTime(interval);
     }
+}
+
+bool Controller::AreExecutorsIdle() {
+    for (auto executor : *(this->Executors)) {
+        if (!executor.IsFree()) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<Item> Controller::GetItems() {

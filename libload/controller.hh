@@ -6,6 +6,7 @@ class Controller {
 		 int GetShortestTime();
 		 void LoadStep();
 		 void TimeStep(int interval);
+		 bool AreExecutorsIdle();
 		 std::vector<Item> GetItems();
 		 std::vector<Executor> GetExecutors();
      private:

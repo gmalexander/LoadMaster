@@ -6,7 +6,9 @@ class Executor {
 	     void ApplyTime(int sec);
          bool PushItem(Item* it);
          std::vector<Item> GetItems();
+         bool IsFree();
      private:
          std::vector<Item>* Items;
+         int Slots;
 	     int OpenSlots;
 };

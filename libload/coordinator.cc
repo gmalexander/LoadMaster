@@ -12,5 +12,9 @@ int Coordinator::Calculate() {
        this->Control->TimeStep(interval);
        totalSeconds += interval;
     }
+    while (!this->Control->AreExecutorsIdle()) {
+        this->Control->TimeStep(interval);
+        totalSeconds += interval;
+    }
     return totalSeconds;
 }
