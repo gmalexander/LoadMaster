@@ -24,7 +24,7 @@ yautf::Test<int>* case1_verifyTimeForOneExecutorOneSlotOneItem()
 yautf::Test<int>* case2_verifyTimeForOneExecutorOneSlotTwoItems()
 {
     std::string caseName = "Verify Proper Time for One Executor with One Slot and Two Items";
-    int expectedValue = 200;
+    int expectedValue = 300;
     auto verifyTimeForOneExecutorOneSlotOneItem = new yautf::Test<int>(caseName, expectedValue);
     std::string fixtureName = "Fixture 1";
     std::string fixture2Name = "Fixture 2";
@@ -55,23 +55,26 @@ yautf::Test<int>* case2_verifyTimeForOneExecutorOneSlotTwoItems()
  * Item 4 RunTime: 50
  * Item 5 RunTime: 60
  * Item 6 RunTime: 300
- * Executor 1:  I1(155)     I2(105) Executor 2: I3(0)       I4(50)      ----- Interval 0: T 45
- * Executor 1:  I1(110)     I2(60)  Executor 2: I5(15)      I4(05)      ----- Interval 1: T 90
- * Executor 1:  I1(65)      I2(15)  Executor 2: I5(0)       I4(0)       ----- Interval 2: T 135
- * Executor 1:  I1(20)      I2(0)   Executor 2: I6(255)     null        ----- Interval 3: T 180
- * Executor 1:  I1(0)       null    Executor 2: I6(210)     null        ----- Interval 4: T 225
- * Executor 1:  null        null    Executor 2: I6(165)     null        ----- Interval 5: T 270
- * Executor 1:  null        null    Executor 2: I6(120)     null        ----- Interval 6: T 315
- * Executor 1:  null        null    Executor 2: I6(75)      null        ----- Interval 6: T 360
- * Executor 1:  null        null    Executor 2: I6(30)      null        ----- Interval 7: T 405
- * Executor 1:  null        null    Executor 2: I6(0)       null        ----- Interval 8: T 450
- * Total Time:  450
+ * Executor 1:  I6(300)     I5(60)  Executor 2: I4(50)      I3(45)      ----- LOAD STEP: T 0
+ * Executor 1:  I6(255)     I5(15)  Executor 2: I4(05)      null        ----- Interval 0: T 45
+ * Executor 1:  I6(255)     I5(15)  Executor 2: I4(05)      I2(150)     ----- LOAD STEP: T 45
+ * Executor 1:  I6(210)     null    Executor 2: null        I2(105)     ----- Interval 1: T 90
+ * Executor 1:  I6(210)     I1(200) Executor 2: null        I2(105)     ----- LOAD STEP: T 90
+ * Executor 1:  I6(165)     I1(155) Executor 2: null        I2(70)      ----- Interval 2: T 135
+ * Executor 1:  I6(165)     I1(155) Executor 2: null        I2(70)      ----- LOAD STEP: T 135
+ * Executor 1:  I6(120)     I1(110) Executor 2: null        I2(25)      ----- Interval 3: T 180
+ * Executor 1:  I6(120)     I1(110) Executor 2: null        I2(25)      ----- LOAD STEP: T 180
+ * Executor 1:  I6(75)      I1(65)  Executor 2: null        null        ----- Interval 4: T 225
+ * Executor 1:  I6(75)      I1(65)  Executor 2: null        null        ----- LOAD STEP: T 225
+ * Executor 1:  I6(30)      I1(20)  Executor 2: null        null        ----- Interval 5: T 270
+ * Executor 1:  I6(30)      I1(20)  Executor 2: null        null        ----- LOAD STEP: T 270
+ * Executor 1:  null        null    Executor 2: null        null        ----- Interval 6: T 315
  */
 
 yautf::Test<int>* case3_verifyTimeForTwoExecutorsTwoSlotsSixItems()
 {
     std::string caseName = "Verify Time for Two Executors, Two Slots, and Six Items";
-    int expectedValue = 450;
+    int expectedValue = 315;
     auto verifyTimeForTwoExecutorsTwoSlotsSixItems = new yautf::Test<int>(caseName, expectedValue);
     std::string fixture1Name = "Fixture 1";
     std::string fixture2Name = "Fixture 2";

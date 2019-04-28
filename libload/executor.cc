@@ -1,21 +1,20 @@
 #include "executor.hh"
+#include <iostream>
 
 Executor::Executor(int slots) {
      this->Slots = slots;
-     this->OpenSlots = slots;
      this->Items = new std::vector<Item>();
 }
 
 bool Executor::PushItem(Item* it) {
-     bool NO_SLOTS = false;
-     bool OPEN_SLOTS = true;
-     if (this->OpenSlots == 0) {
-	     return NO_SLOTS;
+     bool NO_PUSH = false;
+     bool PUSH = true;
+     if (this->Slots == this->Items->size()) {
+	     return NO_PUSH;
      }
      else {
 	     this->Items->push_back(*it);
-	     this->OpenSlots--;
-	     return OPEN_SLOTS;
+	     return PUSH;
      }
 }
 
@@ -25,7 +24,6 @@ void Executor::ApplyTime(int sec) {
           item->SubtractTime(sec);
           if(item->IsDone()) {
                item = this->Items->erase(item);
-               this->OpenSlots++;
           }
           else {
                item++;
@@ -35,7 +33,7 @@ void Executor::ApplyTime(int sec) {
 
 bool Executor::IsFree()
 {
-    return this->Slots == this->OpenSlots;
+    return (this->Items->empty());
 }
 
 std::vector<Item> Executor::GetItems() {

@@ -10,5 +10,4 @@ class Executor {
      private:
          std::vector<Item>* Items;
          int Slots;
-	     int OpenSlots;
 };

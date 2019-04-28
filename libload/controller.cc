@@ -41,13 +41,15 @@ void Controller::TimeStep(int interval) {
     }
 }
 
-bool Controller::AreExecutorsIdle() {
+bool Controller::AreExecutorsAllFree() {
+    int count = this->Executors->size();
+    int numberEmpty = 0;
     for (auto executor : *(this->Executors)) {
-        if (!executor.IsFree()) {
-            return false;
+        if (executor.IsFree()) {
+            numberEmpty++;
         }
     }
-    return true;
+    return count == numberEmpty;
 }
 
 std::vector<Item> Controller::GetItems() {
