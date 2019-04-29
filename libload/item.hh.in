@@ -1,6 +1,11 @@
 #include <vector>
 #include <string>
 #include <climits>
+#include <iostream>
+#define __DEBUG_MODE__ @DEBUG_MODE@
+#if __DEBUG_MODE__==0
+#undef DEBUG_MODE
+#endif
 
 class Item {
     public:

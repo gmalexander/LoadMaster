@@ -8,6 +8,9 @@ Item::Item(std::string* name, int runtime) {
 
 void Item::SubtractTime(int time) {
      this->TimeRemaining -= time;
+#ifdef __DEBUG_MODE__
+     std::cout << "\nDEBUG: Time Remaining: " << this->TimeRemaining << " for item: " << this->Name << "\n\n";
+#endif
 }
 
 bool Item::IsDone() {
