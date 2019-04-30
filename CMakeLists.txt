@@ -10,6 +10,7 @@ file(MAKE_DIRECTORY "${PROJECT_CONFIGURED_SOURCE_DIR}")
 
 #LOAD building
 file(GLOB CCFILES "${PROJECT_SOURCE_DIR}/libload/*.cc")
+file(GLOB CCFILES "${PROJECT_SOURCE_DIR}/libload/*.hh")
 file(COPY ${CCFILES} DESTINATION "${PROJECT_CONFIGURED_SOURCE_DIR}")
 
 include_directories("${PROJECT_SOURCE_DIR}/YAUTF/src")
@@ -18,8 +19,7 @@ include_directories("${PROJECT_CONFIGURED_SOURCE_DIR}")
 ##add_library(load SHARED libload/coordinator.cc) #NOT YET FUNCTIONAL!
 
 #configuration
-configure_file("${PROJECT_SOURCE_DIR}/libload/item.hh.in" "${PROJECT_CONFIGURED_SOURCE_DIR}/item.hh")
-configure_file("${PROJECT_SOURCE_DIR}/libload/executor.hh.in" "${PROJECT_CONFIGURED_SOURCE_DIR}/executor.hh")
+configure_file("${PROJECT_SOURCE_DIR}/libload/config.hh.in" "${PROJECT_CONFIGURED_SOURCE_DIR}/config.hh")
 
 ## Item Test
 add_executable(item_test libload/item_test.cc)
