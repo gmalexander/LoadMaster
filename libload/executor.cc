@@ -5,7 +5,7 @@ Executor::Executor(int slots) {
      this->Slots = slots;
      this->Items = new std::vector<Item>();
 #if __DEBUG_MODE__
-     std::cout << "\nEXECUTOR AT ADDRESS " << this << " INSTANTIATED WITH SLOTS " << this->Slots << "\n";
+     std::cout << "\nDEBUG: EXECUTOR AT ADDRESS " << this << " INSTANTIATED WITH SLOTS " << this->Slots << "\n";
 #endif
 }
 
@@ -47,7 +47,7 @@ void Executor::ApplyTime(int sec) {
               std::cout << "\nDEBUG: ITEMS AFTER DELETION FOR EXECUTOR AT ADDRESS: " << this << "\n";
               for(auto it : *(this->Items))
               {
-                  std::cout << "\nItem: " << it.GetName() << "\n";
+                  std::cout << "\nDEBUG: Item: " << it.GetName() << "\n";
               }
 #endif
           }
