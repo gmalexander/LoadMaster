@@ -22,18 +22,22 @@ include_directories("${PROJECT_CONFIGURED_SOURCE_DIR}")
 configure_file("${PROJECT_SOURCE_DIR}/libload/config.hh.in" "${PROJECT_CONFIGURED_SOURCE_DIR}/config.hh")
 
 ## Item Test
-add_executable(item_test libload/item_test.cc)
+add_executable(item_test ${PROJECT_CONFIGURED_SOURCE_DIR}/item_test.cc)
 target_link_libraries(item_test yautf)
 
 ## Executor Test
-add_executable(executor_test libload/executor_test.cc)
+add_executable(executor_test ${PROJECT_CONFIGURED_SOURCE_DIR}/executor_test.cc)
 target_link_libraries(executor_test yautf)
 
 ## Controller Test
-add_executable(controller_test libload/controller_test.cc)
+add_executable(controller_test ${PROJECT_CONFIGURED_SOURCE_DIR}/controller_test.cc)
 target_link_libraries(controller_test yautf)
 
 ## Coordinator Test
-add_executable(coordinator_test libload/coordinator_test.cc)
+add_executable(coordinator_test ${PROJECT_CONFIGURED_SOURCE_DIR}/coordinator_test.cc)
 target_link_libraries(coordinator_test yautf)
 target_link_libraries(item_test yautf)
+
+#libload
+
+add_library(load SHARED ${PROJECT_CONFIGURED_SOURCE_DIR}/coordinator.cc)
