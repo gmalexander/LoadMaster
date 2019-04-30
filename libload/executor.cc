@@ -39,7 +39,7 @@ void Executor::ApplyTime(int sec) {
               std::cout << "\nDEBUG: ITEMS DELETION FOR EXECUTOR AT ADDRESS: " << this << "\n";
               for(auto it : *(this->Items))
               {
-                  std::cout << "\nItem: " << it.GetName() << " on executor at address " << this << "\n";
+                  std::cout << "\nDEBUG: Item: " << it.GetName() << " on executor at address " << this << "\n";
               }
 #endif
               item = this->Items->erase(item);
