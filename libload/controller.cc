@@ -14,6 +14,9 @@ int Controller::GetShortestTime() {
 	      interval = runtime;
        }
     }
+#if __DEBUG_MODE__
+    std::cout << "\nDEBUG: Shortest Time: " << interval << "\n";
+#endif
     return interval;
 }
 
@@ -49,10 +52,20 @@ bool Controller::AreExecutorsAllFree() {
             numberEmpty++;
         }
     }
+#if __DEBUG_MODE__
+    std::cout << "\nDEBUG: ARE ALL EXECUTORS FREE FOR CONTROLLER AT ADDRESS: " << this << "? " << (count == numberEmpty) << "\n";
+#endif
     return count == numberEmpty;
 }
 
 std::vector<Item> Controller::GetItems() {
+#if __DEBUG_MODE__
+    std::cout << "\nDEBUG: Current items held by controller at address: " << this << "\n";
+    for( auto item : *(this->Items))
+    {
+        std::cout << "\nDEBUG: Item: " << item.GetName() << "\n";
+    }
+#endif
     return *(this->Items);
 }
 
