@@ -9,17 +9,17 @@ add_subdirectory(YAUTF)
 file(MAKE_DIRECTORY "${PROJECT_CONFIGURED_SOURCE_DIR}")
 
 #LOAD building
-file(GLOB CCFILES "${PROJECT_SOURCE_DIR}/libload/*.cc")
-file(GLOB CCFILES "${PROJECT_SOURCE_DIR}/libload/*.hh")
+file(GLOB CCFILES "${PROJECT_SOURCE_DIR}/libloadmaster/*.cc")
+file(GLOB CCFILES "${PROJECT_SOURCE_DIR}/libloadmaster/*.hh")
 file(COPY ${CCFILES} DESTINATION "${PROJECT_CONFIGURED_SOURCE_DIR}")
 
 include_directories("${PROJECT_SOURCE_DIR}/YAUTF/src")
 include_directories("${PROJECT_CONFIGURED_SOURCE_DIR}")
 
-##add_library(load SHARED libload/coordinator.cc) #NOT YET FUNCTIONAL!
+##add_library(load SHARED libloadmaster/coordinator.cc) #NOT YET FUNCTIONAL!
 
 #configuration
-configure_file("${PROJECT_SOURCE_DIR}/libload/config.hh.in" "${PROJECT_CONFIGURED_SOURCE_DIR}/config.hh")
+configure_file("${PROJECT_SOURCE_DIR}/libloadmaster/config.hh.in" "${PROJECT_CONFIGURED_SOURCE_DIR}/config.hh")
 
 ## Item Test
 add_executable(item_test ${PROJECT_CONFIGURED_SOURCE_DIR}/item_test.cc)
@@ -38,6 +38,6 @@ add_executable(coordinator_test ${PROJECT_CONFIGURED_SOURCE_DIR}/coordinator_tes
 target_link_libraries(coordinator_test yautf)
 target_link_libraries(item_test yautf)
 
-#libload
+#libloadmaster
 
-add_library(load SHARED ${PROJECT_CONFIGURED_SOURCE_DIR}/coordinator.cc)
+add_library(loadmaster SHARED ${PROJECT_CONFIGURED_SOURCE_DIR}/coordinator.cc)
