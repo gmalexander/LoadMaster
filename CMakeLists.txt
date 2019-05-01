@@ -10,8 +10,9 @@ file(MAKE_DIRECTORY "${PROJECT_CONFIGURED_SOURCE_DIR}")
 
 #LOAD building
 file(GLOB CCFILES "${PROJECT_SOURCE_DIR}/src/*.cc")
-file(GLOB CCFILES "${PROJECT_SOURCE_DIR}/src/*.hh")
+file(GLOB HHFILES "${PROJECT_SOURCE_DIR}/src/*.hh")
 file(COPY ${CCFILES} DESTINATION "${PROJECT_CONFIGURED_SOURCE_DIR}")
+file(COPY ${HHFILES} DESTINATION "${PROJECT_CONFIGURED_SOURCE_DIR}")
 
 include_directories("${PROJECT_SOURCE_DIR}/YAUTF/src")
 include_directories("${PROJECT_CONFIGURED_SOURCE_DIR}")
@@ -38,6 +39,13 @@ add_executable(coordinator_test ${PROJECT_CONFIGURED_SOURCE_DIR}/coordinator_tes
 target_link_libraries(coordinator_test yautf)
 target_link_libraries(item_test yautf)
 
-#src
-
+# Library Build
 add_library(loadmaster SHARED ${PROJECT_CONFIGURED_SOURCE_DIR}/coordinator.cc)
+
+if (APPLE OR UNIX OR LINUX)
+    set_target_properties(loadmaster PROPERTIES SUFFIX .so)
+endif()
+
+# System Test
+add_executable(loadmaster_test ${PROJECT_CONFIGURED_SOURCE_DIR}/loadmaster_test.cc)
+target_link_libraries(loadmaster_test loadmaster)
