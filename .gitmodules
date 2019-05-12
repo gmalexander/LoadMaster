@@ -1,0 +1,3 @@
+[submodule "YAUTF"]
+	path = YAUTF
+	url = https://github.com/gmalexander/YAUTF
